@@ -126,8 +126,8 @@ const SignIn = () => {
       );
       alert("로그인 완료!");
       console.log("로그인 완료!", response.data);
-      navigate("/todolist");
       makeSession();
+      navigate("/todolist");
     } catch (error) {
       console.error("로그인 실패!", error);
     }
