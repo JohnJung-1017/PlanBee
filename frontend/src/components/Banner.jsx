@@ -10,7 +10,7 @@ const Banner = () => {
     const getUserId = async () => {
       try {
         const response = await axios.get(
-          `https://43.200.100.158:8080/planbee/auth/getUserId`,
+          `https://planbee.p-e.kr/planbee/auth/getUserId`,
           {
             withCredentials: true,
           }
@@ -28,7 +28,7 @@ const Banner = () => {
   const logout = async () => {
     try {
       const response = await axios.post(
-        `https://43.200.100.158:8080/planbee/auth/logout`,
+        `https://planbee.p-e.kr/planbee/auth/logout`,
         null,
         { withCredentials: true }
       );

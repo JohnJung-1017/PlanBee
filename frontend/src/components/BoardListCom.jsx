@@ -48,12 +48,9 @@ const BoardListCom = ({ Info: infoFromProps }) => {
   const fetchBoardList = async () => {
     // 게시판 글 가져오는 기능
     try {
-      const response = await axios.get(
-        `https://43.200.100.158:8080/${requestUrl}`,
-        {
-          withCredentials: true,
-        }
-      );
+      const response = await axios.get(`https://planbee.p-e.kr/${requestUrl}`, {
+        withCredentials: true,
+      });
       console.log({ thisGroupId }, "의 게시글목록: ", response.data);
       if (response.data && response.data.posts) {
         setBoard(response.data.posts);
@@ -108,7 +105,7 @@ const BoardListCom = ({ Info: infoFromProps }) => {
     // 그룹 탈퇴하는 코드
     try {
       const response = await axios.post(
-        `https://43.200.100.158:8080/planbee/groups/${thisGroupId}/leave`,
+        `https://planbee.p-e.kr/planbee/groups/${thisGroupId}/leave`,
         {},
         {
           withCredentials: true,
@@ -126,7 +123,7 @@ const BoardListCom = ({ Info: infoFromProps }) => {
     // 최신순 정렬
     try {
       const response = await axios.get(
-        `https://43.200.100.158:8080/planbee/groups/${thisGroupId}/boards?sort=newest`,
+        `https://planbee.p-e.kr/planbee/groups/${thisGroupId}/boards?sort=newest`,
         { withCredentials: true }
       );
       console.log("최신순 정렬 결과", response.data);
@@ -140,7 +137,7 @@ const BoardListCom = ({ Info: infoFromProps }) => {
     // 오래된 순 정렬
     try {
       const response = await axios.get(
-        `https://43.200.100.158:8080/planbee/groups/${thisGroupId}/boards?sort=oldest`,
+        `https://planbee.p-e.kr/planbee/groups/${thisGroupId}/boards?sort=oldest`,
         { withCredentials: true }
       );
       console.log("오래된 순 정렬 결과:", response.data);
@@ -154,7 +151,7 @@ const BoardListCom = ({ Info: infoFromProps }) => {
     // 조회수 많은 순 정렬
     try {
       const response = await axios.get(
-        `https://43.200.100.158:8080/planbee/groups/${thisGroupId}/boards?sort=hit`,
+        `https://planbee.p-e.kr/planbee/groups/${thisGroupId}/boards?sort=hit`,
         { withCredentials: true }
       );
       console.log("조회수 많은 순 정렬 결과:", response.data);
@@ -168,7 +165,7 @@ const BoardListCom = ({ Info: infoFromProps }) => {
     // 검색어로 검색하는 코드 (검색 기준: searchType, 검색어: searchTerm)
     try {
       const response = await axios.get(
-        `https://43.200.100.158:8080/planbee/groups/${thisGroupId}/boards?searchType=${searchType}&query=${searchTerm}`,
+        `https://planbee.p-e.kr/planbee/groups/${thisGroupId}/boards?searchType=${searchType}&query=${searchTerm}`,
         { withCredentials: true }
       );
       console.log("검색어:", searchTerm, "검색 기준:", searchType);

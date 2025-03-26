@@ -29,7 +29,7 @@ const TomorrowCom = () => {
     const fetchTodoDetails = async () => {
       try {
         const response = await axios.get(
-          `https://43.200.100.158:8080/planbee/todolist/getTodo/${getFormattedTomorrowYYMMDD()}`,
+          `https://planbee.p-e.kr/planbee/todolist/getTodo/${getFormattedTomorrowYYMMDD()}`,
           {
             withCredentials: true,
           }
@@ -49,7 +49,7 @@ const TomorrowCom = () => {
     const fetchMemo = async () => {
       try {
         const response = await axios.get(
-          `https://43.200.100.158:8080/planbee/todolist/getMemo/${getFormattedTomorrowYYMMDD()}`,
+          `https://planbee.p-e.kr/planbee/todolist/getMemo/${getFormattedTomorrowYYMMDD()}`,
           {
             withCredentials: true,
           }
@@ -85,7 +85,7 @@ const TomorrowCom = () => {
     );
 
     try {
-      await axios.put("https://43.200.100.158:8080/planbee/todolist/state", {
+      await axios.put("https://planbee.p-e.kr/planbee/todolist/state", {
         tdDetailId: changedItem.tdDetailId,
         tdId: changedItem.tdId,
         tdDetail: changedItem.tdDetail,
@@ -112,7 +112,7 @@ const TomorrowCom = () => {
     };
     try {
       const response = await axios.put(
-        `https://43.200.100.158:8080/planbee/todolist/modify`,
+        `https://planbee.p-e.kr/planbee/todolist/modify`,
         requestData,
         { withCredentials: true }
       );
@@ -137,7 +137,7 @@ const TomorrowCom = () => {
   //todolist 삭제 함수 -> 세션연결 성공, 테스트 완료
   const handleDeleteClick = (id) => {
     axios
-      .delete(`https://43.200.100.158:8080/planbee/todolist/del`, {
+      .delete(`https://planbee.p-e.kr/planbee/todolist/del`, {
         data: { tdDetailId: id },
         withCredentials: true,
       })
@@ -164,7 +164,7 @@ const TomorrowCom = () => {
 
     try {
       const response = await axios.post(
-        `https://43.200.100.158:8080/planbee/todolist/write/${getFormattedTomorrowYYMMDD()}`,
+        `https://planbee.p-e.kr/planbee/todolist/write/${getFormattedTomorrowYYMMDD()}`,
         newTaskData,
         { withCredentials: true }
       );
@@ -203,13 +203,10 @@ const TomorrowCom = () => {
     console.log("전송하는 데이터:", requestData);
 
     try {
-      await axios.put(
-        "https://43.200.100.158:8080/planbee/todolist/memoWrite",
-        {
-          tdId: tomorrowTdId,
-          tdMemo: newMemo,
-        }
-      );
+      await axios.put("https://planbee.p-e.kr/planbee/todolist/memoWrite", {
+        tdId: tomorrowTdId,
+        tdMemo: newMemo,
+      });
       setMemo(newMemo);
       setIsEditingMemo(false);
     } catch (error) {

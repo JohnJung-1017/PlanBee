@@ -34,7 +34,7 @@ const SignIn = () => {
     try {
       console.log("전송할 사용자 정보:", userInfo);
       const response = await axios.post(
-        `https://43.200.100.158:8080/planbee/auth/email/send`,
+        `https://planbee.p-e.kr/planbee/auth/email/send`,
         userInfo
       );
 
@@ -75,7 +75,7 @@ const SignIn = () => {
       console.log(userInfo, userCode);
       const dataToSend = { ...userInfo, tempUserCode: userCode };
       const response = await axios.post(
-        `https://43.200.100.158:8080/planbee/auth/email/verify`,
+        `https://planbee.p-e.kr/planbee/auth/email/verify`,
         dataToSend
       );
       console.log("인증 완료!", response.data);
@@ -90,7 +90,7 @@ const SignIn = () => {
       console.log(userInfo, userCode);
       const dataToSend = { ...userInfo, tempUserCode: userCode };
       const response = await axios.post(
-        `https://43.200.100.158:8080/planbee/auth/register`,
+        `https://planbee.p-e.kr/planbee/auth/register`,
         dataToSend
       );
       console.log("회원가입 완료!", response.data);
@@ -120,7 +120,7 @@ const SignIn = () => {
   const Login = async () => {
     try {
       const response = await axios.post(
-        `https://43.200.100.158:8080/planbee/auth/login`,
+        `https://planbee.p-e.kr/planbee/auth/login`,
         loginData,
         { withCredentials: true }
       );
@@ -136,7 +136,7 @@ const SignIn = () => {
   const makeSession = async () => {
     try {
       const response = await axios.get(
-        `https://43.200.100.158:8080/planbee/auth/session`,
+        `https://planbee.p-e.kr/planbee/auth/session`,
         {
           withCredentials: true,
         }

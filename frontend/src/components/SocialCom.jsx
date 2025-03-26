@@ -24,12 +24,9 @@ const SocialCom = ({ Info, sessionId }) => {
   const fetchGroups = async () => {
     //requestUrl을 통해서 그룹들의 리스트 렌더링
     try {
-      const response = await axios.get(
-        `https://43.200.100.158:8080/${requestUrl}`,
-        {
-          withCredentials: true,
-        }
-      );
+      const response = await axios.get(`https://planbee.p-e.kr/${requestUrl}`, {
+        withCredentials: true,
+      });
       console.log("SocialCom 그룹정보가져오기 실행:", response.data);
 
       setGroups(response.data); //그룹전체 정보를 groups에 저장장
